@@ -9,7 +9,7 @@ function MovieDetails() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5001/api/movies/${id}`)
+      .get(`https://backend-0mp3.onrender.com/api/movies/${id}`)
       .then((res) => setMovie(res.data))
       .catch((err) => console.log(err));
   }, [id]);
@@ -17,7 +17,7 @@ function MovieDetails() {
   const toggleWatched = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:5001/api/movies/${id}/watched`
+        `https://backend-0mp3.onrender.com/api/movies/${id}/watched`
       );
 
       setMovie(res.data);
