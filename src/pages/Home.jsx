@@ -7,7 +7,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5001/api/movies")
+      .get("https://backend-0mp3.onrender.com/api/movies")
       .then((res) => setMovies(res.data))
       .catch((err) => console.log(err));
   }, []);
