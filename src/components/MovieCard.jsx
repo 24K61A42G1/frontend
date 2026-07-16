@@ -7,7 +7,7 @@ function MovieCard({ movie }) {
     <Link to={`/movie/${movie._id}`}>
       <div className="movie-card">
         <img
-          src={movie.poster || "https://via.placeholder.com/200x300?text=No+Poster"}
+          src={movie.poster}
           alt={movie.title || "Movie poster"}
           width="200"
         />
