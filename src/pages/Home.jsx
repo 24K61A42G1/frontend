@@ -8,9 +8,7 @@ function Home() {
   const normalizeMovies = (data) => {
     if (Array.isArray(data)) return data;
     if (data && Array.isArray(data.movies)) return data.movies;
-    if (data && typeof data === "object" && (data._id || data.title || data.poster)) {
-      return [data];
-    }
+    if (data && typeof data === "object") return [data];
     return [];
   };
 
@@ -22,15 +20,19 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <h1>Movie Watch List</h1>
+    <div style={{ padding: "20px" }}>
+      <h1 style={{ textAlign: "center" }}>Movie Watch List</h1>
 
-      <div className="movie-grid">
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+          gap: "20px",
+          justifyItems: "center",
+        }}
+      >
         {movies.map((movie) => (
-          <MovieCard
-            key={movie._id}
-            movie={movie}
-          />
+          <MovieCard key={movie._id} movie={movie} />
         ))}
       </div>
     </div>
